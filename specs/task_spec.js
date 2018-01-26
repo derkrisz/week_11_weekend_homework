@@ -9,4 +9,9 @@ describe('Task', function(){
     task = new Task("clean kitchen", 2, 3, 10);
   })
 
+  it('should mark task as completed', function(){
+    task.markCompleted();
+    assert.strictEqual(task.completed, true);
+  })
+
 })
