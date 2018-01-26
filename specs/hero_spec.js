@@ -1,6 +1,7 @@
 var assert = require('assert');
 var Hero = require('../hero.js')
 var Task = require('../task.js')
+var Food = require('../food.js')
 
 describe('Hero', function() {
 
@@ -9,13 +10,17 @@ describe('Hero', function() {
   var task2;
   var task3;
   var task4;
+  var food1;
+  var food2;
 
   beforeEach(function() {
-    hero = new Hero("Krisz", 100, "Pizza");
+    hero = new Hero("Krisz", 50, "Pizza");
     task1 = new Task("Do nothing", 1, 1, 0);
     task2 = new Task("Clean kitchen", 2, 3, 10);
     task3 = new Task("Cut the grass in garden", 5, 2, 15);
     task4 = new Task("Take the dog for a walk", 3, 2, 5);
+    food1 = new Food("Pizza", 20);
+    food2 = new Food("Steak", 10);
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
@@ -37,6 +42,11 @@ describe('Hero', function() {
   it('should mark task as completed', function() {
     hero.markTaskCompleted(task1);
     assert.strictEqual(task1.completed, true);
+  })
+
+  it('should be able to eat food and replenish health', function() {
+    hero.eatFood(food2);
+    assert.strictEqual(hero.health, 60);
   })
 
 })

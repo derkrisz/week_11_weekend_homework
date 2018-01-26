@@ -19,4 +19,8 @@ Hero.prototype.markTaskCompleted = function(task) {
   }
 }
 
+Hero.prototype.eatFood = function(food) {
+  this.health = this.health + food.replenishment_value;
+}
+
 module.exports = Hero;
