@@ -20,7 +20,11 @@ Hero.prototype.markTaskCompleted = function(task) {
 }
 
 Hero.prototype.eatFood = function(food) {
-  this.health = this.health + food.replenishment_value;
+  if (food.name == this.fav_food) {
+    this.health += food.replenishment_value * 1.5;
+  } else {
+    this.health += food.replenishment_value;
+  }
 }
 
-module.exports = Hero;
+  module.exports = Hero;
