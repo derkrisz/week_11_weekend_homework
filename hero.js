@@ -13,4 +13,10 @@ Hero.prototype.addTask = function(task) {
   this.tasks.push(task);
 }
 
+Hero.prototype.markTaskCompleted = function(task) {
+  if (this.tasks.includes(task) == true) {
+    task.markCompleted();
+  }
+}
+
 module.exports = Hero;

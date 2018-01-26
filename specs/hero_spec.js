@@ -2,7 +2,7 @@ var assert = require('assert');
 var Hero = require('../hero.js')
 var Task = require('../task.js')
 
-describe('Hero', function(){
+describe('Hero', function() {
 
   var hero;
   var task1;
@@ -32,6 +32,11 @@ describe('Hero', function(){
   it('should be able to add task to tasks', function() {
     hero.addTask(task4);
     assert.strictEqual(hero.tasks.length, 4);
+  })
+
+  it('should mark task as completed', function() {
+    hero.markTaskCompleted(task1);
+    assert.strictEqual(task1.completed, true);
   })
 
 })
