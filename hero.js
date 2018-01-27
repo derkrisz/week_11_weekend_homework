@@ -20,10 +20,11 @@ Hero.prototype.markTaskCompleted = function(task) {
 }
 
 Hero.prototype.eatFood = function(food) {
+  var multiplier = 1.5;
   if (food.name == this.fav_food && !food.poisonous) {
-    this.health += food.replenishment_value * 1.5;
+    this.health += food.replenishment_value * multiplier;
   } else if (food.name == this.fav_food && food.poisonous) {
-      this.health -= food.replenishment_value * 1.5;
+      this.health -= food.replenishment_value * multiplier;
   } else if (food.name != this.fav_food && food.poisonous) {
       this.health -= food.replenishment_value;
   } else {
