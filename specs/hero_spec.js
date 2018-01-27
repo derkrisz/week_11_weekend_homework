@@ -55,7 +55,18 @@ describe('Hero', function() {
   })
 
   it('should be able to sort tasks by difficulty', function() {
-    assert.deepEqual(hero.sortTasksByDifficulty(), [task1, task2, task3]);
+    hero.addTask(task4);
+    assert.deepEqual(hero.sortTasksByDifficulty(), [task1, task2, task4, task3]);
+  })
+
+  it('should be able to view complete tasks', function() {
+    hero.markTaskCompleted(task1);
+    hero.markTaskCompleted(task2);
+    assert.deepEqual(hero.viewTasksThatAreCompleted(), [task1, task2]);
+  })
+
+  it('should be able to view incomplete tasks', function() {
+    assert.deepEqual(hero.viewTasksThatAreNotCompleted(), [task1, task2, task3]);
   })
 
 })

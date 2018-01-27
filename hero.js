@@ -33,4 +33,16 @@ Hero.prototype.sortTasksByDifficulty = function() {
   })
 }
 
+Hero.prototype.viewTasksThatAreCompleted = function() {
+  return this.tasks.filter(function(task){
+    return task.completed == true;
+  })
+}
+
+Hero.prototype.viewTasksThatAreNotCompleted = function() {
+  return this.tasks.filter(function(task){
+    return task.completed == false;
+  })
+}
+
   module.exports = Hero;
