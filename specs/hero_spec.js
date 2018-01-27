@@ -2,6 +2,7 @@ var assert = require('assert');
 var Hero = require('../hero.js')
 var Task = require('../task.js')
 var Food = require('../food.js')
+var Rat = require('../rat.js')
 
 describe('Hero', function() {
 
@@ -12,6 +13,7 @@ describe('Hero', function() {
   var task4;
   var food1;
   var food2;
+  var rat;
 
   beforeEach(function() {
     hero = new Hero("Krisz", 50, "Pizza");
@@ -21,6 +23,7 @@ describe('Hero', function() {
     task4 = new Task("Take the dog for a walk", 3, 2, 5);
     food1 = new Food("Pizza", 20);
     food2 = new Food("Steak", 10);
+    rat = new Rat;
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
@@ -44,14 +47,26 @@ describe('Hero', function() {
     assert.strictEqual(task1.completed, true);
   })
 
-  it('should be able to eat food and replenish health', function() {
+  it('should be able to replenish health if eating not poisonous food', function() {
     hero.eatFood(food2);
     assert.strictEqual(hero.health, 60);
   })
 
-  it('should be able to replenish 1.5* health if eating favourite food', function() {
+  it('should be able to lose health if eating poisonous food', function(){
+    rat.touchFood(food2);
+    hero.eatFood(food2);
+    assert.strictEqual(hero.health, 40);
+  })
+
+  it('should be able to replenish 1.5* health if eating not poisonous favourite food', function() {
     hero.eatFood(food1);
     assert.strictEqual(hero.health, 80);
+  })
+
+  it('should be able to lose 1.5* health if eating poisonous favourite food', function(){
+    rat.touchFood(food1);
+    hero.eatFood(food1);
+    assert.strictEqual(hero.health, 20);
   })
 
   it('should be able to sort tasks by difficulty', function() {
