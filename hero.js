@@ -32,10 +32,24 @@ Hero.prototype.eatFood = function(food) {
   }
 }
 
-Hero.prototype.sortTasksByDifficulty = function() {
-   return this.tasks.sort(function(task1, task2) {
-    return task1.difficulty_level - task2.difficulty_level;
-  })
+Hero.prototype.sortSetup = function(sortType) {
+  return function(firstItem, secondItem) {
+    switch (sortType) {
+      case "difficulty_level":
+      return firstItem.difficulty_level - secondItem.difficulty_level;
+      break;
+      case 'urgency':
+      return firstItem.urgency_level - secondItem.urgency_level;
+      break;
+      case 'reward':
+      return firstItem.reward - secondItem.reward;
+      break;
+    }
+  }
+}
+
+Hero.prototype.sortTasks = function(type) {
+  return this.tasks.sort(this.sortSetup(type))
 }
 
 Hero.prototype.viewTasksThatAreCompleted = function() {

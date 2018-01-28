@@ -71,7 +71,7 @@ describe('Hero', function() {
 
   it('should be able to sort tasks by difficulty', function() {
     hero.addTask(task4);
-    assert.deepEqual(hero.sortTasksByDifficulty(), [task1, task2, task4, task3]);
+    assert.deepEqual(hero.sortTasks('difficulty_level'), [task1, task2, task4, task3]);
   })
 
   it('should be able to view complete tasks', function() {
