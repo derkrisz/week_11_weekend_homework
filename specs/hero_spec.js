@@ -69,9 +69,19 @@ describe('Hero', function() {
     assert.strictEqual(hero.health, 20);
   })
 
+  it('should be able to sort tasks by urgency', function() {
+    hero.addTask(task4);
+    assert.deepEqual(hero.sortTasks('urgency'), [task1, task3, task4, task2]);
+  })
+
+  it('should be able to sort tasks by reward', function() {
+    hero.addTask(task4);
+    assert.deepEqual(hero.sortTasks('reward'), [task1, task4, task2, task3]);
+  })
+
   it('should be able to sort tasks by difficulty', function() {
     hero.addTask(task4);
-    assert.deepEqual(hero.sortTasks('difficulty_level'), [task1, task2, task4, task3]);
+    assert.deepEqual(hero.sortTasks('difficulty'), [task1, task2, task4, task3]);
   })
 
   it('should be able to view complete tasks', function() {

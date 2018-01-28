@@ -35,7 +35,7 @@ Hero.prototype.eatFood = function(food) {
 Hero.prototype.sortSetup = function(sortType) {
   return function(firstItem, secondItem) {
     switch (sortType) {
-      case "difficulty_level":
+      case 'difficulty':
       return firstItem.difficulty_level - secondItem.difficulty_level;
       break;
       case 'urgency':
