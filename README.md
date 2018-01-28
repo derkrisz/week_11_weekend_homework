@@ -41,4 +41,4 @@ D. Extend your hero.
 
 Be creative. Extend the game! Give the hero super powers.
 
-Create a supervillian who wants to take over the world!
+Create a supervillain who wants to take over the world!
